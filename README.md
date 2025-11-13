@@ -22,7 +22,7 @@ ECE549_deblur_project/
 
 ```bash
 # Install dependencies
-pip install -r requirements.txt
+conda env create -f environment.yml 
 
 # Models are already in models/ directory
 # Add more models by cloning into models/
