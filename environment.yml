@@ -1,0 +1,32 @@
+name: deblurgan
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.8
+  - pip
+  - numpy
+  - scipy
+  - tqdm
+  - pyyaml
+
+  # Image processing
+  - scikit-image=0.18.1
+  - opencv
+
+  # Utilities
+  - joblib
+
+  # Pip-only dependencies
+  - pip:
+    - torch==2.4.1+cu121
+    - torchvision==0.19.1+cu121
+    - --extra-index-url https://download.pytorch.org/whl/cu121
+    - torchsummary
+    - pretrainedmodels
+    - albumentations>=1.0.0
+    - glog
+    - tensorboardx
+    - fire
