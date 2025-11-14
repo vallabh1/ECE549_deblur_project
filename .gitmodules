@@ -1,0 +1,4 @@
+[submodule "models/DeblurGANv2"]
+	path = models/DeblurGANv2
+	url = https://github.com/vallabh1/DeblurGANv2-custom.git
+	branch = main
