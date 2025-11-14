@@ -2,3 +2,7 @@
 	path = models/DeblurGANv2
 	url = https://github.com/vallabh1/DeblurGANv2-custom.git
 	branch = main
+[submodule "models/DeblurDiff"]
+	path = models/DeblurDiff
+	url = https://github.com/vallabh1/DeblurDiff-custom.git
+	branch = main
