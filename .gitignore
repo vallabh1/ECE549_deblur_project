@@ -99,6 +99,7 @@ wandb/
 outputs/
 results/
 experiments/
+test/
 
 # Environment variables
 .env

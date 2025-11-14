@@ -47,6 +47,18 @@ Or use the example script:
 ./run_eval.sh
 ```
 
+## Quick run with submodules
+
+After setting up and installing both submodules (see `SUBMODULES.md`), place your test images in the `test/` folder and run:
+
+```bash
+python src/interfaces.py --model both --conda_env deblurdiff38 --device cuda
+# or use CPU:
+# python src/interfaces.py --model both --conda_env deblurdiff38 --device cpu
+```
+
+Results will be saved under `results/DeblurGANv2/` and `results/DeblurDiff/`.
+
 ## Output
 
 Results saved to `results/<model_name>/`:

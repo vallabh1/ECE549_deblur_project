@@ -48,10 +48,10 @@ conda activate deblurdiff38
 
 If you already have `deblurdiff38`, you can skip the create step.
 
-### 3) Download DeblurDiff weights (model.pth)
+### 3) Download weights (model.pth)
 
 DeblurDiff weights are not committed. Download the checkpoint referenced in the DeblurDiff README and place it at:
-
+DeblurGANv2 weights (fpn_inception.h5) are also not committed; download them and place them in the folder models/DeblurGANv2
 ```
 ECE549_deblur_project/models/DeblurDiff/model.pth
 ```
@@ -73,6 +73,7 @@ python inference.py \
 
 Run DeblurGANv2:
 # Example batch script in predict.py processes images in .\dataset1\blur and stores results in .\submit
+Make sure to create a conda env named "deblurdiff38" because interfaces.py assumes that the conda env exists.
 
 ```bash
 cd models/DeblurGANv2
