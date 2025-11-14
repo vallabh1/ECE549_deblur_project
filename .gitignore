@@ -86,7 +86,7 @@ weights/
 pretrained/
 
 # Model repositories (keep original repos out of version control)
-models/
+# models/
 
 # Datasets (keep datasets out of version control)
 datasets/
