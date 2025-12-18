@@ -10,7 +10,7 @@ from glob import glob
 from tqdm import tqdm
 import json
 
-from interfaces import DeblurGANv2
+from interfaces import run_deblurganv2_inference
 from metrics import calculate_psnr, calculate_ssim, entropy_of_difference
 
 
@@ -111,7 +111,7 @@ def main():
     # Load model
     print(f"Loading {args.model}...")
     if args.model == 'DeblurGANv2':
-        model = DeblurGANv2()
+        model = run_deblurganv2_inference()
     else:
         raise ValueError(f"Unknown model: {args.model}")
 

@@ -66,3 +66,45 @@ def entropy_of_difference(predicted: np.ndarray, initial: np.ndarray) -> float:
     probabilities = hist / hist.sum()
 
     return scipy_entropy(probabilities, base=2)
+
+
+def compute_all_metrics(img1: np.ndarray, img2: np.ndarray,
+                       comparison_type: str, max_value: float = 255.0) -> dict:
+    """
+    Compute all three metrics for a pair of images.
+
+    Args:
+        img1: First image (typically deblurred or blurred)
+        img2: Second image (typically original or blurred)
+        comparison_type: One of 'deblurred_vs_original', 'deblurred_vs_blurred', 'blurred_vs_original'
+        max_value: Maximum pixel value (default 255.0 for 8-bit images)
+
+    Returns:
+        Dictionary with keys: psnr, ssim, entropy_diff
+
+    Examples:
+        For 'deblurred_vs_original':
+            img1 = deblurred, img2 = original
+            entropy_diff = entropy(deblurred - original)
+
+        For 'deblurred_vs_blurred':
+            img1 = deblurred, img2 = blurred
+            entropy_diff = entropy(deblurred - blurred)
+
+        For 'blurred_vs_original':
+            img1 = blurred, img2 = original
+            entropy_diff = entropy(blurred - original)
+    """
+    if img1.shape != img2.shape:
+        raise ValueError(f"Shape mismatch: img1 {img1.shape} vs img2 {img2.shape}")
+
+    # Compute metrics
+    psnr = calculate_psnr(img1, img2, max_value=max_value)
+    ssim = calculate_ssim(img1, img2, max_value=max_value)
+    entropy_diff = entropy_of_difference(img1, img2)
+
+    return {
+        'psnr': float(psnr),
+        'ssim': float(ssim),
+        'entropy_diff': float(entropy_diff)
+    }
